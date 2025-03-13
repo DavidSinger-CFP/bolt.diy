@@ -14,8 +14,11 @@ RUN npm install -g pnpm && pnpm install
 # Copy the rest of your app's source code
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE 5173
+# Set default environment variable for Railway
+ENV PORT=3000
+
+# Expose the correct port for Railway/Docker
+EXPOSE 3000
 
 # Production image
 FROM base AS bolt-ai-production
