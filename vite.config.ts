@@ -13,11 +13,11 @@ dotenv.config();
 
 // Get detailed git info with fallbacks
 const getGitInfo = () => {
-  try {
     server: {
       port: parseInt(process.env.PORT) || 3000, // Railway sets PORT dynamically
       host: "0.0.0.0", // Ensure the app binds to all network interfaces
     },
+  try {
     return {
       commitHash: execSync('git rev-parse --short HEAD').toString().trim(),
       branch: execSync('git rev-parse --abbrev-ref HEAD').toString().trim(),
@@ -30,6 +30,7 @@ const getGitInfo = () => {
         .trim()
         .replace(/^.*github.com[:/]/, '')
         .replace(/\.git$/, ''),
+      server
     };
   } catch {
     return {
