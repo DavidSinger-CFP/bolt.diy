@@ -75,6 +75,7 @@ const gitInfo = getGitInfo();
 const serverConfig = {
   port: parseInt(process.env.PORT) || 3000, // Railway sets PORT dynamically
   host: '0.0.0.0', // Ensure the app binds to all network interfaces
+  allowedHosts: ['dev.cfpbrands.com'], // Add your custom domain here
 };
 
 export default defineConfig((config) => {
